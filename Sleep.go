@@ -11,6 +11,7 @@ func main(){
 	var secDurations int
 	fmt.Println("Enter the sleep duration(in seconds)")
 	fmt.Scanf("%d\n",&secDurations)
+	fmt.Println("Sleeping...")
 	modifiedSleep(secDurations)
 	fmt.Println("Awake after sleeping for",secDurations)
 }
