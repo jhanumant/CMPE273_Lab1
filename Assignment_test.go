@@ -23,10 +23,12 @@ type circleArea struct{
 
 var outputCircle = [] circleArea{
 	{2,12.566370614359172,12.566370614359172},
+	{3,28.274333882308138,18.84955592153876},
 }
 
 var outputRectangle =[] rectArea{
 	{2,3,6,10},
+	{4,2,8,12},
 }
 var outputFibonacci= [] fibSeries{
 	{1,1},
@@ -60,7 +62,7 @@ func TestCirclePerimeter(t *testing.T){
 	for _,pair:= range outputCircle{
 		c.radius=pair.radius
 		ans := calculatePerimeter(c)
-		if(ans!=pair.areaOfCircle){
+		if(ans!=pair.perimeterOfCircle){
 			t.Error("For",pair.radius,"The perimeter is:",pair.perimeterOfCircle,"but got:",ans)
 		}
 	}
