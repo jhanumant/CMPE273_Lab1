@@ -1,0 +1,25 @@
+
+Q. What are defer, panic and recover? How do you recover from a run-time panic?
+Answer:
+defer :
+•	‘defer’ is a special statement in Go which schedules a function call to be run after the function completes. It pushes a function onto a list which are executed after the surrounding functions return. 
+•	It is most commonly used to simplify clean-up operations e.g. releasing certain resources (closing a file or input stream after reading).
+•	Common advantages of using defer is that defer functions run even after a panic occurs.
+
+panic :
+•	A typical meaning of panic is that something has gone wrong unexpectedly e.g. some errors that occur during normal execution of the program that are difficult to handle or are not predictable.
+•	A common use of panic is to abort or exit a function if it returns an error value that we don’t know how to handle.
+•	Execution of a function is stopped after a panic occurs.
+•	Common examples where panic occurs are: failure to initialize map; array out of index access.
+
+recover:
+•	A run-time panic can be handled using recover. It re-gains control of a panicking goroutine.
+•	Recover is generally useful when used along with defer. During a normal execution a call to recover will return nil and will have no effect.
+•	If a goroutine is panicking then the recover would capture the panicking value and resume normal execution
+
+Recover from a run-time panic:
+•	To recover from a run-time panic we need to pair recover with defer.
+•	Panic unwinds the stack and recover can stop it.
+•	Deferred functions are still executed even if a panic occurs so pairing it with recover would help in returning the panicking value.
+
+
